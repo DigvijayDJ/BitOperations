@@ -1,0 +1,30 @@
+class Solution {
+    public int myAtoi(String str) {
+        char sign = '+';
+        str = str.trim();
+        double result = 0;
+        int i=0;
+        if(str == "" || str.length()<1 || str ==null){
+            return 0;
+        }
+        
+        else if(str.charAt(0) == '-'){
+            sign = '-';
+            i++;
+        }
+        else if(str.charAt(0)=='+'){
+            i++;
+        }
+        
+        while(str.length()>i && str.charAt(i)>='0' && str.charAt(i)<='9'){
+            result = result*10+(str.charAt(i)-'0');
+            i++;
+        }
+        
+        if(sign == '-'){
+            result = -result;
+        }
+        
+        return (int) result;
+    }
+}
